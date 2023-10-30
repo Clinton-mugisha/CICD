@@ -2,7 +2,7 @@ import random
 from django.test import TestCase
 from .models import Student
 
-
+# here we do tests
 class StudentModelUnitTestCase(TestCase):
     def setUp(self):
         self.student = Student.objects.create(
