@@ -1,7 +1,7 @@
 from django import forms
 from .models import Student
 
-# this is the forms sections
+# this is the forms sectionss
 class StudentForm(forms.ModelForm):
   class Meta:
     model = Student
