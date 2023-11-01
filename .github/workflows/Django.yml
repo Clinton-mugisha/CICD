@@ -1,0 +1,26 @@
+name: Angel Demo
+on:
+    push:
+        branches: ['Development']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container: python:3.10-slim
+        steps:
+            - name: Clone from Github repository
+              uses: actions/checkout@v3
+            - name: Install Requirements
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+            - name: Run Migrations
+              run: |
+                python manage.py makemigrations
+                python manage.py migrate
+            - name: Run server
+              run: |
+                python manage.py runserver
+            - name: Run Tests
+              run: |
+                python manage.py test    
